@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+import pickle, prettytable
+
+
+HEADS = [
+    "circuit",
+    "init",
+    "clifford density",
+    "swap",
+    "linear",
+    "clifford",
+    "clifford + reorder",
+    "clifford + merge",
+    "clifford + both",
+    "cowtan",
+    "staq",
+]
+
+with open("./raw_data/arith.dat", "rb") as fin:
+    data = pickle.load(fin)
+
+for architecture, data in data.items():
+    print("=" * 30, f"{architecture}", "=" * 30)
+    table = prettytable.PrettyTable(field_names=HEADS)
+    for circuit_name, circuit_data in data.items():
+        table.add_row([circuit_name] + circuit_data)
+    print(table)

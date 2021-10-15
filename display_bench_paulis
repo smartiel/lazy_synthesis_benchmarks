@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+
+import pickle
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+with open("./raw_data/paulis.dat", "rb") as fin:
+    data = pickle.load(fin)
+
+for arch, dat in data.items():
+    dat = np.array(dat)
+    colors = ["green", "red", "cyan", "purple"]
+    if arch != "ATA":
+        plt.plot(dat[:, 0], dat[:, 1], "--", label="init")
+        plt.plot(dat[:, 0], dat[:, 2], "--", label="swap")
+        plt.plot(dat[:, 0], dat[:, 8], "--", label="cowtan", color=colors[2])
+
+        plt.plot(dat[:, 0], dat[:, 9], "--", label="staq", color=colors[3])
+    else:
+        plt.plot(dat[:, 0], dat[:, 1], "--", label="init/swap/cowtan/staq")
+
+    plt.plot(dat[:, 0], dat[:, 3], "--", label="linear", color=colors[0])
+    plt.plot(dat[:, 0], dat[:, 5], "--", label="clifford$*$", color=colors[1])
+
+    plt.title(arch if arch != "ATA" else "all-to-all")
+    plt.xlabel("rotation count")
+    plt.ylabel("CNOT count")
+    plt.legend()
+    plt.savefig(f"{arch}_pauli.eps")
