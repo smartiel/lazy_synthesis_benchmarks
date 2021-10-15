@@ -20,6 +20,21 @@ Each circuits comes in 9 forms:
 
 The target architecture is specified by the prefix (`Aspen_`, `Melbourne_`, or `ATA_`).
 
+The file `load_circuit.py` contains a simple script that loads a circuit, displays its gates and some statistics (gate count, etc).
+
+For instance:
+```bash
+python3 load_circuit.py circuits/Aspen_qft_4.qc_clifford3.circ
+```
+
+The script requires myqlm to be installed:
+
+```bash
+virtualenv myqlm
+source ./myqlm/bin/activate
+python3 -m pip install myqlm
+```
+
 ## Arithemtic circuit benchmark
 
 The result of this benchmark are stored in `./raw_data/arith.dat` in pickle format.
