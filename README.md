@@ -11,7 +11,7 @@ Each circuits comes in 9 forms:
 - suffix `_init`: the initial circuit
 - suffix `_swap`: after compilation using the first method of the paper (SWAP insertion)
 - suffix `_linear`: after compilation using the second method of the paper (GL(n, F2) method)
-- suffix `_clifford`: after compilation using the thirf method of the paper (Clifford method)
+- suffix `_clifford`: after compilation using the third method of the paper (Clifford method)
 - suffix `_clifford1`: after compilation using the third method of the paper with reordering (Clifford\star method)
 - suffix `_clifford2`: after compilation using the third method of the paper with merging (Clifford\dagger method)
 - suffix `_clifford3`: after compilation using the third method of the paper with reordering and merging (Clifford\star\dagger method)
@@ -35,20 +35,20 @@ source ./myqlm/bin/activate
 python3 -m pip install myqlm
 ```
 
-## Arithemtic circuit benchmark
+## Arithmetic circuit benchmark
 
-The result of this benchmark are stored in `./raw_data/arith.dat` in pickle format.
+The results of this benchmark are stored in `./raw_data/arith.dat` in pickle format.
 
 They can be loaded and displayed using the `./display_bench_arith` script.
 
 ## QAOA circuit benchmarks
 
-The result of this benchmark are stored in `./raw_data/qaoa.dat` in pickle format.
+The results of this benchmark are stored in `./raw_data/qaoa.dat` in pickle format.
 
 They can be loaded and displayed using the `./display_bench_qaoa` script.
 
 ## Random Pauli rotation circuits
 
-The result of this benchmark are stored in `./raw_data/paulis.dat` in pickle format.
+The results of this benchmark are stored in `./raw_data/paulis.dat` in pickle format.
 
 They can be loaded and displayed using the `./display_bench_paulis` script.
